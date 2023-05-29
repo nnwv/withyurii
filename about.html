@@ -1,13 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <style>
+    body {
+      overflow-x: hidden;
+      margin: 0;
+    }
+    
+    #container {
+      width: 100vw; /* Adjust the width as needed */
+      height: 100vh;
+      display: flex;
+      transition: transform 5s ease;
+    }
+    
+    .rectangle {
+      flex-shrink: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+    
+    #rectangle1 {
+      background-color: red;
+    }
+    
+    #rectangle2 {
+      background-color: green;
+    }
+    
+    #rectangle3 {
+      background-color: blue;
+    }
+    
+    #rectangle4 {
+      background-color: yellow;
+    }
+  </style>
 </head>
 <body>
-    <p>my about page</p>
-    
+  <div id="container">
+    <div class="rectangle" id="rectangle1"></div>
+    <div class="rectangle" id="rectangle2"></div>
+    <div class="rectangle" id="rectangle3"></div>
+    <div class="rectangle" id="rectangle4"></div>
+  </div>
+
+  <script>
+    var container = document.getElementById('container');
+    var rectangles = document.getElementsByClassName('rectangle');
+    var currentIndex = 0;
+    var containerWidth = container.offsetWidth;
+    var rectWidth = rectangles[0].offsetWidth;
+    var scrolling = false;
+
+    function showCurrentRectangle() {
+      var scrollPosition = currentIndex * rectWidth;
+      container.style.transform = 'translateX(-' + scrollPosition + 'px)';
+    }
+
+    function changeRectangle(nextIndex) {
+      currentIndex = nextIndex;
+      showCurrentRectangle();
+    }
+
+    function handleSwipe(event) {
+      if (!scrolling) {
+        var delta = event.deltaX;
+
+        if (delta > 0 && currentIndex < rectangles.length - 1) {
+          scrolling = true;
+          changeRectangle(currentIndex + 1);
+          setTimeout(function() {
+            scrolling = false;
+          }, 2000);
+        } else if (delta < 0 && currentIndex > 0) {
+          scrolling = true;
+          changeRectangle(currentIndex - 1);
+          setTimeout(function() {
+            scrolling = false;
+          }, 2000);
+        }
+      }
+    }
+
+    container.addEventListener('wheel', handleSwipe);
+  </script>
 </body>
 </html>
