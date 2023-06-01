@@ -83,7 +83,25 @@
       }
     }
 
+    function handleKeyBoard(event) {
+      const keyCode = event.keyCode;
+      if (keyCode === 39) {
+        changeRectangle(currentIndex + 1);
+        setTimeout(function() {
+          scrolling = false;
+        }, 2000);
+      }
+      if (keyCode === 37) {
+        changeRectangle(currentIndex - 1);
+        setTimeout(function() {
+          scrolling = false;
+        }, 2000);
+      }
+    }
+
     container.addEventListener('wheel', handleSwipe);
+
+    document.addEventListener('keydown', handleKeyBoard);
   </script>
 </body>
 </html>
