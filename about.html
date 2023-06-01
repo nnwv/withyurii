@@ -11,7 +11,6 @@
       width: 100vw; /* Adjust the width as needed */
       height: 100vh;
       display: flex;
-      transition: transform 5s ease;
     }
     
     .rectangle {
@@ -59,7 +58,11 @@
     }
 
     function changeRectangle(nextIndex) {
-      currentIndex = nextIndex;
+      if (rectangles.length === nextIndex) {
+        currentIndex = 0;
+      } else {
+        currentIndex = nextIndex;
+      }
       showCurrentRectangle();
     }
 
@@ -91,13 +94,23 @@
           scrolling = false;
         }, 2000);
       }
-      if (keyCode === 37) {
+      if (keyCode === 37 && currentIndex > 0) {
         changeRectangle(currentIndex - 1);
         setTimeout(function() {
           scrolling = false;
         }, 2000);
       }
     }
+
+    function addTransition() {
+      setTimeout(() => {
+        container.style.transition = 'transform 5s ease-in-out 0s';
+      }, 300);
+    }
+
+    addTransition();
+
+    showCurrentRectangle();
 
     container.addEventListener('wheel', handleSwipe);
 
