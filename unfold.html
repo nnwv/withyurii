@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Transformation</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      z-index: -1;
+    }
+
+   #still-image {
+     
+    }
+
+
+	
+      #rotatingImage {
+      transition: transform 5s;
+      
+    }
+
+    .rotate {
+      transform-origin: left center;
+      transform: perspective(800px) rotateY(-180deg);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img id="rotatingImage" src="image1.jpg" alt="Transforming Image" onclick="transformImage()">
+  </div>
+
+ <img id="still-image" src="imgage2.jpg" alt="Girl in a jacket">
+
+
+
+
+  <script>
+    function transformImage() {
+      var image = document.getElementById("rotatingImage");
+      image.classList.toggle("rotate");
+    }
+  </script>
+</body>
+</html>
