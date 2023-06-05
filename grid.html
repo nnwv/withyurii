@@ -20,6 +20,7 @@ body {
    .wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, minmax(200px , 1fr));
   height: calc(100vh - 20px);
   border: 1px solid black;
   
@@ -30,6 +31,11 @@ body {
   justify-content: center;
   align-items: center;
   display: flex;
+}
+.box5 img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 </style>
