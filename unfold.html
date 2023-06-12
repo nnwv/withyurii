@@ -3,22 +3,25 @@
 <head>
   <title>Image Transformation</title>
   <style>
+    body {
+      overflow: hidden;
+      background: #282828;
+    }
+    
+    
     .container {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       z-index: -1;
+      box-shadow: 10px red;
+      
     }
 
-   #still-image {
-     
-    }
-
-
-	
       #rotatingImage {
       transition: transform 5s;
+      justify-content: center;
       
     }
 
@@ -31,12 +34,11 @@
 </head>
 <body>
   <div class="container">
-    <img id="rotatingImage" src="image1.jpg" alt="Transforming Image" onclick="transformImage()">
+    <img id="stillImage" src="images/books2.jpg">
+    <img id="rotatingImage" src="images/books2.jpg" alt="Transforming Image" onclick="transformImage()">
+    
+
   </div>
-
- <img id="still-image" src="imgage2.jpg" alt="Girl in a jacket">
-
-
 
 
   <script>
