@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Transformation</title>
+  <style>
+    body {
+      overflow: hidden;
+      background: #282828;
+    }
+    
+    
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      z-index: -1;
+      box-shadow: 10px red;
+      
+    }
+
+      #rotatingImage {
+      transition: transform 5s;
+      justify-content: center;
+      
+    }
+
+    #stillImage {
+      transition: transform 5s;
+    }
+
+    .rotate {
+      transform-origin: left center;
+      transform: perspective(800px) rotateY(-180deg);
+    }
+
+    .back {
+      transform-origin: left center;
+      transform: perspective(800px) rotateY(0);
+    }
+
+    .open {
+      transform-origin: right center;
+      transform: perspective(800px) rotateY(180deg);
+    }
+
+    .close {
+      transform-origin: right center;
+      transform: perspective(800px) rotateY(0);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img id="stillImage" src="images/books2.jpg">
+    <img id="rotatingImage" src="images/books2.jpg" alt="Transforming Image">
+    
+
+  </div>
+
+
+  <script>
+    rotatingImage.addEventListener('click', function() {
+      if (rotatingImage.classList.contains('rotate')) {
+        rotatingImage.classList.toggle("back");
+      } else {
+        rotatingImage.classList.toggle("rotate");
+      }
+
+    });
+
+    stillImage.addEventListener('click', function() {
+      if (stillImage.classList.contains('open')) {
+        stillImage.classList.toggle("close");
+      } else {
+        stillImage.classList.toggle("open");
+      }
+    });
+    // function transformImage() {
+    //   var image = document.getElementById("rotatingImage");
+    //   image.classList.toggle("rotate");
+    // }
+  </script>
+</body>
+</html>
