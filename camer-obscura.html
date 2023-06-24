@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera Obscura</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <script>
+    // Access the user's webcam
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(function(stream) {
+        var video = document.createElement('video');
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        // Play the video stream on the <video> element
+        video.srcObject = stream;
+        video.play();
+
+        // Draw each video frame onto the canvas
+        function drawFrame() {
+          context.drawImage(video, 0, 0, canvas.width, canvas.height);
+          requestAnimationFrame(drawFrame);
+        }
+
+        // Call the drawFrame function to start rendering
+        drawFrame();
+      })
+      .catch(function(error) {
+        console.error('Error accessing the webcam: ', error);
+      });
+  </script>
+</body>
+</html>
