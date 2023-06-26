@@ -4,36 +4,106 @@
   <title>Camera Obscura</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
+                background-color: #000;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 40px;
+                perspective: 10em;
+                perspective-origin: 50% calc(50% - 2em);                           
+                overflow: hidden;     
+            }
     canvas {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 50%;
+      left: 50%;
+      opacity: .2;
+      rotate: 180deg;
     }
+
+    .scene {
+               position: relative;
+               transform-style: preserve-3d;
+                animation: 
+                    sceneRotateLeft var(--turnSpeed) infinite linear, 
+                    sceneRotateRight var(--turnSpeed) infinite linear,
+                    sceneMoveForward var(--speed) infinite linear,
+                    sceneMoveBack var(--speed) infinite linear;
+                animation-play-state: paused, paused, paused, paused;
+            }
+
+    .floor {
+                background-color: #000;            
+                background-image:  linear-gradient(135deg, #ffffff 25%, transparent 25%), linear-gradient(225deg, #ffffff 25%, transparent 25%), linear-gradient(45deg, #ffffff 25%, transparent 25%), linear-gradient(315deg, #ffffff 25%, #000 25%);
+                background-position:  1em 0, 1em 0, 0 0, 0 0;
+                background-size: 1em 1em;
+                background-repeat: repeat;
+                width: 20em;
+                height: 20em;
+                top: 1em;
+                z-index: 0;
+                position: absolute;
+                transform: 
+                translate(-50%, -50%)
+                rotateX(120deg)
+                translateZ(-3em);
+                opacity: .2;
+            }
+
+            .ceiling, .frontWall, .leftWall, .rightWall {
+                position: absolute;
+                background-color: #222297;                
+                background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #222297 1em ), repeating-linear-gradient( #03076055, #030760 );
+                width: 20em;
+                height: 20em;
+                top: -16em;
+                left:-10em;
+                transform: translateZ(-10em);
+            }
+
+            .leftWall {                
+                left:-20em;
+                transform: rotateY(-90deg);
+            }
+
+            .rightWall {                
+                transform: rotateY(90deg);
+                left:0;
+            }
+
+
   </style>
 </head>
 <body>
   <canvas id="canvas"></canvas>
 
-  <script>
+  <div class="scene">
+    <div class="leftWall"></div>
+    <div class="rightWall"></div>
+    <div class="floor"></div>
+</div>
+
+
+<script>
     // Access the user's webcam
     navigator.mediaDevices.getUserMedia({ video: true })
       .then(function(stream) {
         var video = document.createElement('video');
         var canvas = document.getElementById('canvas');
         var context = canvas.getContext('2d');
+        var frameRate = 1000 / 10; // 10 frames per second
 
         // Play the video stream on the <video> element
         video.srcObject = stream;
         video.play();
 
-        // Draw each video frame onto the canvas
+        // Draw each video frame onto the canvas with a delay
         function drawFrame() {
-          context.drawImage(video, 0, 0, canvas.width, canvas.height);
-          requestAnimationFrame(drawFrame);
+          setTimeout(function() {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            requestAnimationFrame(drawFrame);
+          }, frameRate);
         }
 
         // Call the drawFrame function to start rendering
@@ -43,5 +113,6 @@
         console.error('Error accessing the webcam: ', error);
       });
   </script>
+
 </body>
 </html>
