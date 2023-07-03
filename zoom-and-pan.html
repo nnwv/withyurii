@@ -6,6 +6,8 @@
 
 body {
     background-color: black;
+    height: 3000px;
+    position: relative;
     
 }
 
@@ -15,9 +17,15 @@ body {
       touch-action: manipulation;
     }
 
-    #image1{
+    #image1 {
         width: 500px;
         
+    }
+
+    #image2 {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
 
     }
 
@@ -40,18 +48,24 @@ body {
       var zoomImage = zoomImages[i];
       var initialScale = 1;
       var currentScale = 1;
+      var maxScale = 
 
       zoomImage.addEventListener("gesturestart", function (event) {
         initialScale = currentScale;
+        console.log (currentScale);
+
       });
 
-      zoomImage.addEventListener("gesturechange", function (event) {
+      zoomImage.addEventListener("touchmove", function (event) {
         currentScale = initialScale * event.scale;
+        console.log (currentScale);
         this.style.transform = "scale(" + currentScale + ")";
       });
 
       zoomImage.addEventListener("gestureend", function (event) {
         initialScale = currentScale;
+        console.log (currentScale);
+
       });
 
       
