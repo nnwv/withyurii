@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Fullscreen Button</title>
+<style>
+
+
+ #fullscreen-button {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 1000;
+        font-size: 18px;
+        font-weight: bold;
+        color: rgb(2, 0, 0);
+        text-decoration: none;
+        cursor: pointer; 
+      }
+
+      #fullscreen-button:hover {
+  background-color: blue;
+}
+
+    
+
+</style>
+
+
+</head>
+<body>
+    <div id="fullscreen-button" title="Fullscreen">F</div>
+
+    <script>
+
+ const fullscreenButton = document.getElementById("fullscreen-button");
+          fullscreenButton.addEventListener("click", () => {
+              const elem = document.documentElement;
+              if (!document.fullscreenElement) {
+                  if (elem.requestFullscreen) {
+                      elem.requestFullscreen();
+                  } else if (elem.webkitRequestFullscreen) {
+                      elem.webkitRequestFullscreen();
+                  } else if (elem.msRequestFullscreen) {
+                      elem.msRequestFullscreen();
+                  }
+              } else {
+                  if (document.exitFullscreen) {
+                      document.exitFullscreen();
+                  } else if (document.webkitExitFullscreen) {
+                      document.webkitExitFullscreen();
+                  } else if (document.msExitFullscreen) {
+                      document.msExitFullscreen();
+                  }
+              }
+
+          });
+
+
+    </script>
+    
+</body>
+</html>

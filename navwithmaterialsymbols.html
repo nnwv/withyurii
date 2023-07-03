@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <style>
         body {
           text-align: center;
@@ -23,7 +25,7 @@
   
       
   
-        #link-1 {
+        .material-icons.up {
           position: fixed;
           top: 10px;
           left: 50%;
@@ -34,7 +36,7 @@
           text-decoration: none;
         }
   
-        #link-2 {
+        .material-icons.down {
           position: fixed;
           bottom: 10px;
           right: 50%;
@@ -45,7 +47,7 @@
           text-decoration: none;
         }
 
-        #link-3 {
+        .material-icons.right {
           position: fixed;
           top: 50%;
           right: 10px;
@@ -59,7 +61,7 @@
           transform: rotate(180deg);
         }
 
-        #link-4 {
+        .material-icons.left {
           position: fixed;
           bottom: 50%;
           left: 10px;
@@ -70,6 +72,7 @@
           text-decoration: none;
         }
   
+
        
 
 
@@ -81,10 +84,18 @@
 
 </head>
 <body>
+
+  <span class="material-icons left">keyboard_arrow_left</span>
+  <span class="material-icons up">keyboard_arrow_up</span>
+  <span class="material-icons right">keyboard_arrow_right</span>
+  <span class="material-icons down">keyboard_arrow_down</span>
+
+
+
     <a href="" id="link-1" title="one">1</a>
     <a href="" id="link-2" title="two">2</a>
     <a href="" id="link-3" title="three">three</a>
-    <a href="" id="link-4" title="four">4</a>
+    
 
 
 

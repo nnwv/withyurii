@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pinch Zoom Example</title>
+  <style>
+
+body {
+    background-color: black;
+    
+}
+
+    .zoomable-image {
+      max-width: 100%;
+      max-height: 100%;
+      touch-action: manipulation;
+    }
+
+    #image1{
+        width: 500px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="image-container">
+    <img id="image1" class="zoomable-image" src="images/meninas.jpg" alt="Zoomable Image 1">
+    <img id="image2" class="zoomable-image" src="images/foot.jpg" alt="Zoomable Image 2">
+    <!-- Add more images here as needed -->
+  </div>
+
+  <script>
+    var zoomImages = document.getElementsByClassName("zoomable-image");
+
+    for (var i = 0; i < zoomImages.length; i++) {
+      var zoomImage = zoomImages[i];
+      var initialScale = 1;
+      var currentScale = 1;
+
+      zoomImage.addEventListener("gesturestart", function (event) {
+        initialScale = currentScale;
+      });
+
+      zoomImage.addEventListener("gesturechange", function (event) {
+        currentScale = initialScale * event.scale;
+        this.style.transform = "scale(" + currentScale + ")";
+      });
+
+      zoomImage.addEventListener("gestureend", function (event) {
+        initialScale = currentScale;
+      });
+
+      
+
+    }
+
+
+
+
+    
+  </script>
+</body>
+</html>

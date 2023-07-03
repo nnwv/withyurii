@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Drag and Smooth Zoom Example</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* Prevent scrollbars */
+    }
+
+    #dropzone-container {
+      position: fixed;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1; /* Ensure drop zones are above the image */
+    }
+
+    .dropzone {
+      width: 300px;
+      height: 300px;
+      border: 2px dashed #aaa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.5);
+      margin: 10px;
+      overflow: hidden;
+    }
+
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0; /* Ensure image is behind the drop zones */
+    }
+  </style>
+</head>
+<body>
+  <img class="background-image" src="images/wall.jpg" alt="Background Image">
+
+  <div id="dropzone-container">
+    <div class="dropzone" id="dropzone1">
+      <p>Drag and drop a file here</p>
+    </div>
+
+    <div class="dropzone" id="dropzone2">
+      <p>Drag and drop a file here</p>
+    </div>
+
+    <div class="dropzone" id="dropzone3">
+      <p>Drag and drop a file here</p>
+    </div>
+  </div>
+
+  <script>
+    const dropzones = document.querySelectorAll('.dropzone');
+
+    dropzones.forEach(dropzone => {
+      dropzone.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        dropzone.style.border = '2px dashed #555';
+      });
+
+      dropzone.addEventListener('dragleave', (event) => {
+        event.preventDefault();
+        dropzone.style.border = '2px dashed #aaa';
+      });
+
+      dropzone.addEventListener('drop', (event) => {
+        event.preventDefault();
+        dropzone.style.border = '2px dashed #aaa';
+
+        const file = event.dataTransfer.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          const image = new Image();
+          image.src = e.target.result;
+          image.classList.add('preview');
+          image.style.width = '100%'; // Set the width of the image to 100%
+          image.onload = function() {
+            dropzone.style.height = `${image.height}px`; // Set the height of the drop zone to match the height of the image
+          };
+          dropzone.innerHTML = '';
+          dropzone.appendChild(image);
+        };
+
+        reader.readAsDataURL(file);
+      });
+    });
+
+    let isDragging = false;
+    let initialX = 0;
+    let initialY = 0;
+    let offsetX = 0;
+    let offsetY = 0;
+    let scale = 1;
+
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mouseup', handleMouseUp);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('wheel', handleWheel);
+
+    function handleMouseDown(event) {
+      isDragging = true;
+      initialX = event.clientX - offsetX;
+      initialY = event.clientY - offsetY;
+      document.body.style.cursor = 'grabbing';
+    }
+
+    function handleMouseUp() {
+      isDragging = false;
+      document.body.style.cursor = 'grab';
+    }
+
+    function handleMouseMove(event) {
+      if (!isDragging) return;
+      event.preventDefault();
+      const currentX = event.clientX;
+      const currentY = event.clientY;
+      offsetX = currentX - initialX;
+      offsetY = currentY - initialY;
+      updateTransform();
+    }
+
+    function handleWheel(event) {
+      event.preventDefault();
+      const delta = -Math.sign(event.deltaY); // Invert the sign of deltaY
+      const zoomFactor = 0.1;
+      const zoomIntensity = 1 + zoomFactor * delta;
+      const zoomCenterX = event.clientX - offsetX; // Calculate the zoom center X position
+      const zoomCenterY = event.clientY - offsetY; // Calculate the zoom center Y position
+      scale *= zoomIntensity;
+      offsetX = event.clientX - zoomCenterX * scale; // Adjust the offset X position based on the zoom center
+      offsetY = event.clientY - zoomCenterY * scale; // Adjust the offset Y position based on the zoom center
+      updateTransform();
+    }
+
+    function updateTransform() {
+      const clampedScale = Math.max(1, scale); // Minimum scale of 1
+      document.body.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${clampedScale})`;
+    }
+  </script>
+</body>
+</html>
+
