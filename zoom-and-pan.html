@@ -48,23 +48,22 @@ body {
       var zoomImage = zoomImages[i];
       var initialScale = 1;
       var currentScale = 1;
-      var maxScale = 
+      
 
       zoomImage.addEventListener("gesturestart", function (event) {
         initialScale = currentScale;
-        console.log (currentScale);
 
       });
 
-      zoomImage.addEventListener("touchmove", function (event) {
+      zoomImage.addEventListener("gesturechange", function (event) {
         currentScale = initialScale * event.scale;
-        console.log (currentScale);
+       
         this.style.transform = "scale(" + currentScale + ")";
       });
 
       zoomImage.addEventListener("gestureend", function (event) {
         initialScale = currentScale;
-        console.log (currentScale);
+ 
 
       });
 
