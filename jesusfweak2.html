@@ -56,18 +56,23 @@ font-weight: bold;
 padding: 10px 10px;
 margin: 20px;
 cursor: pointer;
-transform: skewY(-10deg);
 z-index: -1;
 }
 
 button:hover {
-  transform: skewY(0deg);
+  transform: skewY(10deg);
 }
 
 #link-a {
 position: fixed;
 right: 10px;
 bottom: 10px;
+}
+
+.wrapper-buttons {
+  transform: skewY(-10deg);
+  margin-top: -70px
+
 }
 
   </style>
@@ -77,7 +82,7 @@ bottom: 10px;
   <div id="player"></div>
   <a href="https://www.instagram.com/evan.hall/" id="link-a">Instagram</a>
   
-
+<div class="wrapper-buttons">
   <button onclick="playVideo('otvx2vkoCRI')">Don't Look Back</button>
   <br>
   <button onclick="playVideo('AnUuDFg9jng')">He says “Return to Me.”</button>
@@ -329,7 +334,7 @@ bottom: 10px;
   <button onclick="playVideo('-DOXZBQsHWo')">Testimony: Why I exchanged my gay identity for an identity in Christ</button>
   <br>
   <button onclick="playVideo('161MPBySnko')">2 Years Free From Masturbation & Pornography NoFap</button>
-
+</div>
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
     // Initialize the YouTube player
