@@ -16,46 +16,37 @@
       height: auto;
       overflow-x: hidden;
       overflow-y: auto;
+      margin: 0;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
 
     #player {
       display: none;
-      width: 540px;
-      height: 295px;
+      width: 100%;
+      height: 100%;
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 1;
-    }
-
-
-    @media screen and (max-width: 768px) {
-      #player {
-        width: 100%;
-      }
-      #player-border {
-        width: 100%;
-      }
     }
 
     #player-border {
       border: 10px solid silver;
       border-radius: 2px;
       background-color: black;
-      width: 560px;
-      height: 315px;
+      width: 50vw;
+      aspect-ratio: 16 / 9;
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 1;
+    }
 
+    @media screen and (max-width: 768px) {
+      #player-border {
+        width: 90%;
+      }
     }
 
     button {
@@ -92,8 +83,9 @@
 </head>
 
 <body>
-  <div id="player-border"></div>
-  <div id="player"></div>
+  <div id="player-border">
+    <div id="player"></div>
+  </div>
   <a href="https://www.instagram.com/evan.hall/" id="link-a">Instagram</a>
 
   <div class="wrapper-buttons">
