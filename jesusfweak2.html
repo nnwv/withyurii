@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="images/fav.ico">
-    <title>Jesus Fweak Archive</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="images/fav.ico">
+  <title>Jesus Fweak Archive</title>
   <style>
     body {
       background-color: #282828;
@@ -18,10 +18,15 @@
       overflow-y: auto;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
+
     #player {
       display: none;
-      width: 560px;
-      height: 315px;
+      width: 540px;
+      height: 295px;
       position: fixed;
       top: 50%;
       left: 50%;
@@ -29,312 +34,323 @@
       z-index: 1;
     }
 
+
+    @media screen and (max-width: 768px) {
+      #player {
+        width: 100%;
+      }
+      #player-border {
+        width: 100%;
+      }
+    }
+
     #player-border {
-    border: 10px solid silver;
-    border-radius: 2px;
-    background-color: black;
+      border: 10px solid silver;
+      border-radius: 2px;
+      background-color: black;
       width: 560px;
       height: 315px;
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%); 
+      transform: translate(-50%, -50%);
       z-index: 1;
-        
+
     }
 
-button {
-box-sizing: border-box ;
-border: 1px solid;
-box-shadow: 0 0 0 2px gold, 0 0 6px 0 gold, 0 0 12px 0 #d3d3d3;
-border-radius: 2px;
-background-color: bisque;
-font-family: 'Courier New', Courier, monospace;
-font-size: larger;
-font-style: oblique;
-font-weight: bold;
-padding: 10px 10px;
-margin: 20px;
-cursor: pointer;
-z-index: -1;
-}
+    button {
+      box-sizing: border-box;
+      border: 1px solid;
+      box-shadow: 0 0 0 2px gold, 0 0 6px 0 gold, 0 0 12px 0 #d3d3d3;
+      border-radius: 2px;
+      background-color: bisque;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: larger;
+      font-style: oblique;
+      font-weight: bold;
+      padding: 10px 10px;
+      margin: 20px;
+      cursor: pointer;
+      z-index: -1;
+    }
 
-button:hover {
-  transform: skewY(10deg);
-}
+    button:hover {
+      transform: skewY(10deg);
+    }
 
-#link-a {
-position: fixed;
-right: 10px;
-bottom: 10px;
-}
+    #link-a {
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+    }
 
-.wrapper-buttons {
-  transform: skewY(-10deg);
-  margin-top: -70px
-
-}
-
+    .wrapper-buttons {
+      transform: skewY(-10deg);
+      margin-top: -70px
+    }
   </style>
 </head>
+
 <body>
-    <div id="player-border"></div>
+  <div id="player-border"></div>
   <div id="player"></div>
   <a href="https://www.instagram.com/evan.hall/" id="link-a">Instagram</a>
-  
-<div class="wrapper-buttons">
-  <button onclick="playVideo('otvx2vkoCRI')">Don't Look Back</button>
-  <br>
-  <button onclick="playVideo('AnUuDFg9jng')">He says “Return to Me.”</button>
-  <br>
-  <button onclick="playVideo('DsqSShjVNIE')">The Feet Of Those Who Carry The Good News</button>
-  <br>
-  <button onclick="playVideo('VUDBwSg30fU')">Passover was Jesus' Last Supper #pesach</button>
-  <br>
-  <button onclick="playVideo('PCyctWvIADk')">Mystery of the Tree of Life</button>
-  <br>
-  <button onclick="playVideo('j1v3pw4Ts6I')">Mystery Message</button>
-  <br>
-  <button onclick="playVideo('We8LLnGo07w')">Pressing Toward the Mark of the High Calling</button>
-  <br>
-  <button onclick="playVideo('tjLSdeBYDGE')">The Way To Zion</button>
-  <br>
-  <button onclick="playVideo('SuZDj4i1kqo')">New year prayer - Explosive children of God</button>
-  <br>
-  <button onclick="playVideo('g_oGZjTLn9k')">Qualifications For Exiting the Wilderness</button>
-  <br>
-  <button onclick="playVideo('yAKkbI3_fIQ')">Swan song (Revelation 15 + 2 Samuel 6)</button>
-  <br>
-  <button onclick="playVideo('xpVbnCZNCZI')">A Table Set Before You - Psalm 23</button>
-  <br>
-  <button onclick="playVideo('osacIFEINz8')">Sent | Luke 10:1-3</button>
-  <br>
-  <button onclick="playVideo('6kd4c_9AYgs')">Holy Confidence</button>
-  <br>
-  <button onclick="playVideo('cOnTocwOiFs')">Focused & Diligent Building Pt. 2 (Nehemiah)</button>
-  <br>
-  <button onclick="playVideo('myATzZ25rIA')">Focused and Diligent Building (Nehemiah 1-4)</button>
-  <br>
-  <button onclick="playVideo('Uo6q16CluyI')">Moshe, Fire, Altar</button>
-  <br>
-  <button onclick="playVideo('PPXXXUVKGzE')">Yom Kippur - Requirement For Entering the Holy of Holies</button>
-  <br>
-  <button onclick="playVideo('yXGCGmMH9PE')">Stretch Out Your Hand</button>
-  <br>
-  <button onclick="playVideo('g9MpsX35ZHY')">Two Fields (Spirit & Flesh)</button>
-  <br>
-  <button onclick="playVideo('WI7k_A_nWyE')">Unlocking the Spiritual Wellsprings</button>
-  <br>
-  <button onclick="playVideo('RzxnbFt22Xs')">War Time</button>
-  <br>
-  <button onclick="playVideo('ug8VSs1-KHw')">The Spirit Does Not Sleep Nor Slumber</button>
-  <br>
-  <button onclick="playVideo('Bvmmn3LsAUQ')">Receiving the Reward of Suffering</button>
-  <br>
-  <button onclick="playVideo('5hEgc7SZWns')">Thank You For The Lessons - Demo | Prophetic Flow - Raw Psalm - Christian Lofi</button>
-  <br>
-  <button onclick="playVideo('8SH3QQOkxAg')">Territorial Altars - The Location Of God</button>
-  <br>
-  <button onclick="playVideo('VDounWAXhBo')">The Eyes of the Lord</button>
-  <br>
-  <button onclick="playVideo('iIthbXZyOWQ')">Not A Distant God - The Era of Priests Pt. 2</button>
-  <br>
-  <button onclick="playVideo('TQ9UmhbkJ5I')">Mystery of the Almond Branch – The Era of Priests</button>
-  <br>
-  <button onclick="playVideo('MzlbHZgMT9c')">Sparring With Jesus</button>
-  <br>
-  <button onclick="playVideo('lFjHcabtsrg')">Sons of Light</button>
-  <br>
-  <button onclick="playVideo('B6DlvwPJw-o')">Spiritual Steamboats (All Aboard)</button>
-  <br>
-  <button onclick="playVideo('EJ9Jp6sSyMg')">The First Kill</button>
-  <br>
-  <button onclick="playVideo('EkrSzJG3eZM')">Jesus Says Come</button>
-  <br>
-  <button onclick="playVideo('grZdgVP14f4')">The Seal of God</button>
-  <br>
-  <button onclick="playVideo('VX-UL1a2_Hs')">Prophecy</button>
-  <br>
-  <button onclick="playVideo('TiXgOUqrqB8')">Midnight Prayer</button>
-  <br>
-  <button onclick="playVideo('GzrIPdXOEfM')">Night Hours</button>
-  <br>
-  <button onclick="playVideo('Mo__YGHl3VE')">As Long As It Is Called Today (Cross-Pollination)</button>
-  <br>
-  <button onclick="playVideo('7q6pV_gmbJ8')">Born For This</button>
-  <br>
-  <button onclick="playVideo('xdmXCo203Xs')">Gifts for Kings (According to the prophet Isaiah)</button>
-  <br>
-  <button onclick="playVideo('_epJ-h9rGyg')">The Big Catch</button>
-  <br>
-  <button onclick="playVideo('Z_7R6XKga8c')">Sources of Knowledge</button>
-  <br>
-  <button onclick="playVideo('zcU3BkFofxs')">Plantings of the Lord</button>
-  <br>
-  <button onclick="playVideo('OHJ0OU_SI5o')">The Floodgates Are Opening - Prophetic Teaching</button>
-  <br>
-  <button onclick="playVideo('VTY6nnHGvzQ')">Water Carriers</button>
-  <br>
-  <button onclick="playVideo('Y0mmaFwG0es')">A New Order of Priests</button>
-  <br>
-  <button onclick="playVideo('sOgZU6mh_Pg')">You Are a Miracle Child / Tapestries of God</button>
-  <br>
-  <button onclick="playVideo('6s7O8XL2CMc')">Acceptable Sacrifices</button>
-  <br>
-  <button onclick="playVideo('SG0epWoZZZQ')">Being About the Father's Business</button>
-  <br>
-  <button onclick="playVideo('Db6Di8eDVT0')">Changing Our Spiritual Appetites</button>
-  <br>
-  <button onclick="playVideo('Y99BJMsf2O4')">Training Our Hands For War</button>
-  <br>
-  <button onclick="playVideo('kgVmyOkP6xw')">God Honors Consistency</button>
-  <br>
-  <button onclick="playVideo('ETJzmhrdVMI')">Transformation Around Midnight</button>
-  <br>
-  <button onclick="playVideo('Awa2_kmkEkA')">Dining with the King</button>
-  <br>
-  <button onclick="playVideo('ayO1Pe3k5eM')">The Place of Elevation</button>
-  <br>
-  <button onclick="playVideo('DMNuXm0neMc')">It's Time To Shine - Prophetic Word</button>
-  <br>
-  <button onclick="playVideo('bXn1Sg6w0K4')">Ascending the Mountain of the Lord</button>
-  <br>
-  <button onclick="playVideo('OFnCM1zFL64')">Aug. 10, 2021: He Sees Us and He Calls Us</button>
-  <br>
-  <button onclick="playVideo('xk_wfWoARtE')">July 27, 2021: A Renewed Mindset</button>
-  <br>
-  <button onclick="playVideo('sKktEf2iYFI')">July 13: Why Do Bad Things Happen To Good People?</button>
-  <br>
-  <button onclick="playVideo('YlqNg9g8VRc')">God's Kids</button>
-  <br>
-  <button onclick="playVideo('9Am4Ep4NTDE')">Dreams As Sites For Encounter</button>
-  <br>
-  <button onclick="playVideo('nRo5U8V7Jt0')">Training To Run With the Horses</button>
-  <br>
-  <button onclick="playVideo('DBQk2_v6YZg')">Striking While the Iron Is Hot</button>
-  <br>
-  <button onclick="playVideo('nRDTjXNos_I')">Notes on Forgiveness</button>
-  <br>
-  <button onclick="playVideo('MvpnTFhTv7E')">The Location of God’s Mysteries</button>
-  <br>
-  <button onclick="playVideo('7R11i3l0B1U')">Apr. 13: A Commissioning of Prophetic People</button>
-  <br>
-  <button onclick="playVideo('YOFj-8ijScw')">Well Built Faith</button>
-  <br>
-  <button onclick="playVideo('7yOZZTSCkuM')">What is a Child of God?</button>
-  <br>
-  <button onclick="playVideo('YUYhV_22p5k')">Gates To Heaven</button>
-  <br>
-  <button onclick="playVideo('k2mwhqYh_XI')">Advancing Comes By Yielding</button>
-  <br>
-  <button onclick="playVideo('leKjp7Dsp0A')">Jan 12: Being Hidden in the Secret Place</button>
-  <br>
-  <button onclick="playVideo('B1ZZmldqK5Y')">Christmas / Matthew & Isaiah</button>
-  <br>
-  <button onclick="playVideo('2M-9afmqxhU')">The Bridegroom Cometh (Oil Preparations)</button>
-  <br>
-  <button onclick="playVideo('Ips9vBGL7As')">Exalting the Humble</button>
-  <br>
-  <button onclick="playVideo('cUmwKhXJ7CM')">Receiving Your Crown</button>
-  <br>
-  <button onclick="playVideo('8t69jVm3y_c')">Avoiding Spiritual Shipwreck</button>
-  <br>
-  <button onclick="playVideo('X1fSrwm7Ya8')">Productivity Is Waiting On the Lord</button>
-  <br>
-  <button onclick="playVideo('G-i_U7T94PA')">Childlike People</button>
-  <br>
-  <button onclick="playVideo('Cm-VYOOHQ7M')">Not Just Servants, but Friends of God</button>
-  <br>
-  <button onclick="playVideo('K8Zu_ESmSFg')">Peace Keepers (Fire Extinguishers)</button>
-  <br>
-  <button onclick="playVideo('EkVWtPnmv0A')">Songs of God Pt. 2 – A Call to the Levites</button>
-  <br>
-  <button onclick="playVideo('UovwbsnuhF0')">Songs of God</button>
-  <br>
-  <button onclick="playVideo('FfEhrxgP_js')">Testing the Spirits Pt. 2 — Satan’s Nature</button>
-  <br>
-  <button onclick="playVideo('6sAJqeFDqbc')">Testing the Spirits</button>
-  <br>
-  <button onclick="playVideo('9DbrYg1aWys')">A Kingdom of Priests</button>
-  <br>
-  <button onclick="playVideo('_iqa5gsV3M8')">The Priceless Knowledge of God</button>
-  <br>
-  <button onclick="playVideo('ZfrcPhnL5Wg')">Running Your Race | Conversation Sep 22</button>
-  <br>
-  <button onclick="playVideo('EurEuC5YrXc')">The Role of the Holy Spirit</button>
-  <br>
-  <button onclick="playVideo('J2v-Js-cc90')">God Designed Us For One Another</button>
-  <br>
-  <button onclick="playVideo('lf1OAfGBsu4')">God Brings Multiplication Through Division</button>
-  <br>
-  <button onclick="playVideo('-uv_Eww4hcI')">Aug 25: Don’t Worry About Tomorrow’s Provision</button>
-  <br>
-  <button onclick="playVideo('qsSIEwTrIlY')">Spiritual Echolocation</button>
-  <br>
-  <button onclick="playVideo('5jLQfrSI6rs')">Aug 4: Strangers on the Earth</button>
-  <br>
-  <button onclick="playVideo('O_vKjlTJcdY')">July 28: The Soon Coming Glory of God</button>
-  <br>
-  <button onclick="playVideo('Us4z-K44FKQ')">July 14: Under the Fig Tree</button>
-  <br>
-  <button onclick="playVideo('XSQOi99r7zw')">July 6: The Importance of Prophetic Song</button>
-  <br>
-  <button onclick="playVideo('zSBgoSwzHU0')">June 26: Your Reward For Loving God</button>
-  <br>
-  <button onclick="playVideo('VjSejh9Flx4')">June 21: Feet of Bronze</button>
-  <br>
-  <button onclick="playVideo('nlS5R8BiSj8')">June 13: Be In Position (Sudden Blessings)</button>
-  <br>
-  <button onclick="playVideo('NwtoxNrflyQ')">June 10: The Cost of the High Calling</button>
-  <br>
-  <button onclick="playVideo('b_M8EN9a31E')">June 9: The Process of Revealing Jesus</button>
-  <br>
-  <button onclick="playVideo('bojh9BUvv3M')">June 6: Tongues of Men and Angels</button>
-  <br>
-  <button onclick="playVideo('owfVfybBwHk')">June 5: How To Love</button>
-  <br>
-  <button onclick="playVideo('w_DzSG0iR1w')">June 2: How To Seek And Find God</button>
-  <br>
-  <button onclick="playVideo('GhusAy4lDXA')">May 31: Arise Watchmen</button>
-  <br>
-  <button onclick="playVideo('LGBaYfGgrvQ')">May 30: A Pentecost Promise</button>
-  <br>
-  <button onclick="playVideo('75fHAS1NkVQ')">May 29: Get To The Pentecost Banquet (Shavuot)</button>
-  <br>
-  <button onclick="playVideo('YvTIDiTluMA')">May 28: Kingdom Financial System</button>
-  <br>
-  <button onclick="playVideo('SDAMf-Durc8')">May 27: Preparing For Your Visitation</button>
-  <br>
-  <button onclick="playVideo('biSr1TFNwP4')">May 26: Many Dwelling Places of God</button>
-  <br>
-  <button onclick="playVideo('ZnT4kmW_xzY')">May 25: Coals of Fire</button>
-  <br>
-  <button onclick="playVideo('2D5ZEpuMxRA')">May 24: Ready, Aim, Fire</button>
-  <br>
-  <button onclick="playVideo('vOSHJLrfkAM')">May 23: Sweeter Than Honey</button>
-  <br>
-  <button onclick="playVideo('dyzblxWmd18')">May 22: God’s Pinwheel</button>
-  <br>
-  <button onclick="playVideo('6fpf0u57FOk')">May 21: Her Vineyard</button>
-  <br>
-  <button onclick="playVideo('1EalY9NwOWo')">May 20: Springtime & Harvest</button>
-  <br>
-  <button onclick="playVideo('4kFUEKBwHjw')">May 19: Hearts Set Ablaze (Spirit of Revelation)</button>
-  <br>
-  <button onclick="playVideo('CNRMxE_YHKM')">May 18: Leaving Childish Things and Running to the Lord’s Battle</button>
-  <br>
-  <button onclick="playVideo('UA9n583pVMw')">May 17: People Inhabiting the Wilderness</button>
-  <br>
-  <button onclick="playVideo('ytymfr8eiNs')">May 16: You Are God’s War Standard</button>
-  <br>
-  <button onclick="playVideo('z0eD2WxppbE')">May 15: God Inventions for 2020 / Prophetic Word</button>
-  <br>
-  <button onclick="playVideo('cS40MKXIgSc')">Why we can access the presence of God</button>
-  <br>
-  <button onclick="playVideo('-DOXZBQsHWo')">Testimony: Why I exchanged my gay identity for an identity in Christ</button>
-  <br>
-  <button onclick="playVideo('161MPBySnko')">2 Years Free From Masturbation & Pornography NoFap</button>
-</div>
+
+  <div class="wrapper-buttons">
+    <button onclick="playVideo('otvx2vkoCRI')">Don't Look Back</button>
+    <br>
+    <button onclick="playVideo('AnUuDFg9jng')">He says “Return to Me.”</button>
+    <br>
+    <button onclick="playVideo('DsqSShjVNIE')">The Feet Of Those Who Carry The Good News</button>
+    <br>
+    <button onclick="playVideo('VUDBwSg30fU')">Passover was Jesus' Last Supper #pesach</button>
+    <br>
+    <button onclick="playVideo('PCyctWvIADk')">Mystery of the Tree of Life</button>
+    <br>
+    <button onclick="playVideo('j1v3pw4Ts6I')">Mystery Message</button>
+    <br>
+    <button onclick="playVideo('We8LLnGo07w')">Pressing Toward the Mark of the High Calling</button>
+    <br>
+    <button onclick="playVideo('tjLSdeBYDGE')">The Way To Zion</button>
+    <br>
+    <button onclick="playVideo('SuZDj4i1kqo')">New year prayer - Explosive children of God</button>
+    <br>
+    <button onclick="playVideo('g_oGZjTLn9k')">Qualifications For Exiting the Wilderness</button>
+    <br>
+    <button onclick="playVideo('yAKkbI3_fIQ')">Swan song (Revelation 15 + 2 Samuel 6)</button>
+    <br>
+    <button onclick="playVideo('xpVbnCZNCZI')">A Table Set Before You - Psalm 23</button>
+    <br>
+    <button onclick="playVideo('osacIFEINz8')">Sent | Luke 10:1-3</button>
+    <br>
+    <button onclick="playVideo('6kd4c_9AYgs')">Holy Confidence</button>
+    <br>
+    <button onclick="playVideo('cOnTocwOiFs')">Focused & Diligent Building Pt. 2 (Nehemiah)</button>
+    <br>
+    <button onclick="playVideo('myATzZ25rIA')">Focused and Diligent Building (Nehemiah 1-4)</button>
+    <br>
+    <button onclick="playVideo('Uo6q16CluyI')">Moshe, Fire, Altar</button>
+    <br>
+    <button onclick="playVideo('PPXXXUVKGzE')">Yom Kippur - Requirement For Entering the Holy of Holies</button>
+    <br>
+    <button onclick="playVideo('yXGCGmMH9PE')">Stretch Out Your Hand</button>
+    <br>
+    <button onclick="playVideo('g9MpsX35ZHY')">Two Fields (Spirit & Flesh)</button>
+    <br>
+    <button onclick="playVideo('WI7k_A_nWyE')">Unlocking the Spiritual Wellsprings</button>
+    <br>
+    <button onclick="playVideo('RzxnbFt22Xs')">War Time</button>
+    <br>
+    <button onclick="playVideo('ug8VSs1-KHw')">The Spirit Does Not Sleep Nor Slumber</button>
+    <br>
+    <button onclick="playVideo('Bvmmn3LsAUQ')">Receiving the Reward of Suffering</button>
+    <br>
+    <button onclick="playVideo('5hEgc7SZWns')">Thank You For The Lessons - Demo | Prophetic Flow - Raw Psalm - Christian
+      Lofi</button>
+    <br>
+    <button onclick="playVideo('8SH3QQOkxAg')">Territorial Altars - The Location Of God</button>
+    <br>
+    <button onclick="playVideo('VDounWAXhBo')">The Eyes of the Lord</button>
+    <br>
+    <button onclick="playVideo('iIthbXZyOWQ')">Not A Distant God - The Era of Priests Pt. 2</button>
+    <br>
+    <button onclick="playVideo('TQ9UmhbkJ5I')">Mystery of the Almond Branch – The Era of Priests</button>
+    <br>
+    <button onclick="playVideo('MzlbHZgMT9c')">Sparring With Jesus</button>
+    <br>
+    <button onclick="playVideo('lFjHcabtsrg')">Sons of Light</button>
+    <br>
+    <button onclick="playVideo('B6DlvwPJw-o')">Spiritual Steamboats (All Aboard)</button>
+    <br>
+    <button onclick="playVideo('EJ9Jp6sSyMg')">The First Kill</button>
+    <br>
+    <button onclick="playVideo('EkrSzJG3eZM')">Jesus Says Come</button>
+    <br>
+    <button onclick="playVideo('grZdgVP14f4')">The Seal of God</button>
+    <br>
+    <button onclick="playVideo('VX-UL1a2_Hs')">Prophecy</button>
+    <br>
+    <button onclick="playVideo('TiXgOUqrqB8')">Midnight Prayer</button>
+    <br>
+    <button onclick="playVideo('GzrIPdXOEfM')">Night Hours</button>
+    <br>
+    <button onclick="playVideo('Mo__YGHl3VE')">As Long As It Is Called Today (Cross-Pollination)</button>
+    <br>
+    <button onclick="playVideo('7q6pV_gmbJ8')">Born For This</button>
+    <br>
+    <button onclick="playVideo('xdmXCo203Xs')">Gifts for Kings (According to the prophet Isaiah)</button>
+    <br>
+    <button onclick="playVideo('_epJ-h9rGyg')">The Big Catch</button>
+    <br>
+    <button onclick="playVideo('Z_7R6XKga8c')">Sources of Knowledge</button>
+    <br>
+    <button onclick="playVideo('zcU3BkFofxs')">Plantings of the Lord</button>
+    <br>
+    <button onclick="playVideo('OHJ0OU_SI5o')">The Floodgates Are Opening - Prophetic Teaching</button>
+    <br>
+    <button onclick="playVideo('VTY6nnHGvzQ')">Water Carriers</button>
+    <br>
+    <button onclick="playVideo('Y0mmaFwG0es')">A New Order of Priests</button>
+    <br>
+    <button onclick="playVideo('sOgZU6mh_Pg')">You Are a Miracle Child / Tapestries of God</button>
+    <br>
+    <button onclick="playVideo('6s7O8XL2CMc')">Acceptable Sacrifices</button>
+    <br>
+    <button onclick="playVideo('SG0epWoZZZQ')">Being About the Father's Business</button>
+    <br>
+    <button onclick="playVideo('Db6Di8eDVT0')">Changing Our Spiritual Appetites</button>
+    <br>
+    <button onclick="playVideo('Y99BJMsf2O4')">Training Our Hands For War</button>
+    <br>
+    <button onclick="playVideo('kgVmyOkP6xw')">God Honors Consistency</button>
+    <br>
+    <button onclick="playVideo('ETJzmhrdVMI')">Transformation Around Midnight</button>
+    <br>
+    <button onclick="playVideo('Awa2_kmkEkA')">Dining with the King</button>
+    <br>
+    <button onclick="playVideo('ayO1Pe3k5eM')">The Place of Elevation</button>
+    <br>
+    <button onclick="playVideo('DMNuXm0neMc')">It's Time To Shine - Prophetic Word</button>
+    <br>
+    <button onclick="playVideo('bXn1Sg6w0K4')">Ascending the Mountain of the Lord</button>
+    <br>
+    <button onclick="playVideo('OFnCM1zFL64')">Aug. 10, 2021: He Sees Us and He Calls Us</button>
+    <br>
+    <button onclick="playVideo('xk_wfWoARtE')">July 27, 2021: A Renewed Mindset</button>
+    <br>
+    <button onclick="playVideo('sKktEf2iYFI')">July 13: Why Do Bad Things Happen To Good People?</button>
+    <br>
+    <button onclick="playVideo('YlqNg9g8VRc')">God's Kids</button>
+    <br>
+    <button onclick="playVideo('9Am4Ep4NTDE')">Dreams As Sites For Encounter</button>
+    <br>
+    <button onclick="playVideo('nRo5U8V7Jt0')">Training To Run With the Horses</button>
+    <br>
+    <button onclick="playVideo('DBQk2_v6YZg')">Striking While the Iron Is Hot</button>
+    <br>
+    <button onclick="playVideo('nRDTjXNos_I')">Notes on Forgiveness</button>
+    <br>
+    <button onclick="playVideo('MvpnTFhTv7E')">The Location of God’s Mysteries</button>
+    <br>
+    <button onclick="playVideo('7R11i3l0B1U')">Apr. 13: A Commissioning of Prophetic People</button>
+    <br>
+    <button onclick="playVideo('YOFj-8ijScw')">Well Built Faith</button>
+    <br>
+    <button onclick="playVideo('7yOZZTSCkuM')">What is a Child of God?</button>
+    <br>
+    <button onclick="playVideo('YUYhV_22p5k')">Gates To Heaven</button>
+    <br>
+    <button onclick="playVideo('k2mwhqYh_XI')">Advancing Comes By Yielding</button>
+    <br>
+    <button onclick="playVideo('leKjp7Dsp0A')">Jan 12: Being Hidden in the Secret Place</button>
+    <br>
+    <button onclick="playVideo('B1ZZmldqK5Y')">Christmas / Matthew & Isaiah</button>
+    <br>
+    <button onclick="playVideo('2M-9afmqxhU')">The Bridegroom Cometh (Oil Preparations)</button>
+    <br>
+    <button onclick="playVideo('Ips9vBGL7As')">Exalting the Humble</button>
+    <br>
+    <button onclick="playVideo('cUmwKhXJ7CM')">Receiving Your Crown</button>
+    <br>
+    <button onclick="playVideo('8t69jVm3y_c')">Avoiding Spiritual Shipwreck</button>
+    <br>
+    <button onclick="playVideo('X1fSrwm7Ya8')">Productivity Is Waiting On the Lord</button>
+    <br>
+    <button onclick="playVideo('G-i_U7T94PA')">Childlike People</button>
+    <br>
+    <button onclick="playVideo('Cm-VYOOHQ7M')">Not Just Servants, but Friends of God</button>
+    <br>
+    <button onclick="playVideo('K8Zu_ESmSFg')">Peace Keepers (Fire Extinguishers)</button>
+    <br>
+    <button onclick="playVideo('EkVWtPnmv0A')">Songs of God Pt. 2 – A Call to the Levites</button>
+    <br>
+    <button onclick="playVideo('UovwbsnuhF0')">Songs of God</button>
+    <br>
+    <button onclick="playVideo('FfEhrxgP_js')">Testing the Spirits Pt. 2 — Satan’s Nature</button>
+    <br>
+    <button onclick="playVideo('6sAJqeFDqbc')">Testing the Spirits</button>
+    <br>
+    <button onclick="playVideo('9DbrYg1aWys')">A Kingdom of Priests</button>
+    <br>
+    <button onclick="playVideo('_iqa5gsV3M8')">The Priceless Knowledge of God</button>
+    <br>
+    <button onclick="playVideo('ZfrcPhnL5Wg')">Running Your Race | Conversation Sep 22</button>
+    <br>
+    <button onclick="playVideo('EurEuC5YrXc')">The Role of the Holy Spirit</button>
+    <br>
+    <button onclick="playVideo('J2v-Js-cc90')">God Designed Us For One Another</button>
+    <br>
+    <button onclick="playVideo('lf1OAfGBsu4')">God Brings Multiplication Through Division</button>
+    <br>
+    <button onclick="playVideo('-uv_Eww4hcI')">Aug 25: Don’t Worry About Tomorrow’s Provision</button>
+    <br>
+    <button onclick="playVideo('qsSIEwTrIlY')">Spiritual Echolocation</button>
+    <br>
+    <button onclick="playVideo('5jLQfrSI6rs')">Aug 4: Strangers on the Earth</button>
+    <br>
+    <button onclick="playVideo('O_vKjlTJcdY')">July 28: The Soon Coming Glory of God</button>
+    <br>
+    <button onclick="playVideo('Us4z-K44FKQ')">July 14: Under the Fig Tree</button>
+    <br>
+    <button onclick="playVideo('XSQOi99r7zw')">July 6: The Importance of Prophetic Song</button>
+    <br>
+    <button onclick="playVideo('zSBgoSwzHU0')">June 26: Your Reward For Loving God</button>
+    <br>
+    <button onclick="playVideo('VjSejh9Flx4')">June 21: Feet of Bronze</button>
+    <br>
+    <button onclick="playVideo('nlS5R8BiSj8')">June 13: Be In Position (Sudden Blessings)</button>
+    <br>
+    <button onclick="playVideo('NwtoxNrflyQ')">June 10: The Cost of the High Calling</button>
+    <br>
+    <button onclick="playVideo('b_M8EN9a31E')">June 9: The Process of Revealing Jesus</button>
+    <br>
+    <button onclick="playVideo('bojh9BUvv3M')">June 6: Tongues of Men and Angels</button>
+    <br>
+    <button onclick="playVideo('owfVfybBwHk')">June 5: How To Love</button>
+    <br>
+    <button onclick="playVideo('w_DzSG0iR1w')">June 2: How To Seek And Find God</button>
+    <br>
+    <button onclick="playVideo('GhusAy4lDXA')">May 31: Arise Watchmen</button>
+    <br>
+    <button onclick="playVideo('LGBaYfGgrvQ')">May 30: A Pentecost Promise</button>
+    <br>
+    <button onclick="playVideo('75fHAS1NkVQ')">May 29: Get To The Pentecost Banquet (Shavuot)</button>
+    <br>
+    <button onclick="playVideo('YvTIDiTluMA')">May 28: Kingdom Financial System</button>
+    <br>
+    <button onclick="playVideo('SDAMf-Durc8')">May 27: Preparing For Your Visitation</button>
+    <br>
+    <button onclick="playVideo('biSr1TFNwP4')">May 26: Many Dwelling Places of God</button>
+    <br>
+    <button onclick="playVideo('ZnT4kmW_xzY')">May 25: Coals of Fire</button>
+    <br>
+    <button onclick="playVideo('2D5ZEpuMxRA')">May 24: Ready, Aim, Fire</button>
+    <br>
+    <button onclick="playVideo('vOSHJLrfkAM')">May 23: Sweeter Than Honey</button>
+    <br>
+    <button onclick="playVideo('dyzblxWmd18')">May 22: God’s Pinwheel</button>
+    <br>
+    <button onclick="playVideo('6fpf0u57FOk')">May 21: Her Vineyard</button>
+    <br>
+    <button onclick="playVideo('1EalY9NwOWo')">May 20: Springtime & Harvest</button>
+    <br>
+    <button onclick="playVideo('4kFUEKBwHjw')">May 19: Hearts Set Ablaze (Spirit of Revelation)</button>
+    <br>
+    <button onclick="playVideo('CNRMxE_YHKM')">May 18: Leaving Childish Things and Running to the Lord’s Battle</button>
+    <br>
+    <button onclick="playVideo('UA9n583pVMw')">May 17: People Inhabiting the Wilderness</button>
+    <br>
+    <button onclick="playVideo('ytymfr8eiNs')">May 16: You Are God’s War Standard</button>
+    <br>
+    <button onclick="playVideo('z0eD2WxppbE')">May 15: God Inventions for 2020 / Prophetic Word</button>
+    <br>
+    <button onclick="playVideo('cS40MKXIgSc')">Why we can access the presence of God</button>
+    <br>
+    <button onclick="playVideo('-DOXZBQsHWo')">Testimony: Why I exchanged my gay identity for an identity in
+      Christ</button>
+    <br>
+    <button onclick="playVideo('161MPBySnko')">2 Years Free From Masturbation & Pornography NoFap</button>
+  </div>
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
     // Initialize the YouTube player
@@ -370,4 +386,5 @@ bottom: 10px;
     }
   </script>
 </body>
+
 </html>
