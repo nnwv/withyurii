@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leonardo Recto Verso</title>
+  <style>
+    body {
+      overflow: hidden;
+      background: #282828;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      z-index: -1;
+      box-shadow: 10px red;
+    }
+    .flip-image {
+      width: 358px;
+      height: 500px;
+      perspective: 1000px;
+    }
+    img {
+      height: 500px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .wrap-images {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 5s;      
+    }
+
+    .image {
+      position: absolute;
+      backface-visibility: hidden;
+    }
+    .back-image {
+      transform: rotateY(180deg);
+    }
+
+    .wrap-images.rotate {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="flip-image">
+      <div class="wrap-images">
+        <img src="images/recto.png" class="image front-image" alt="">
+        <img src="images/verso.png" class="image back-image" alt="">
+      </div>
+    </div>
+    <div class="flip-image">
+      <div class="wrap-images">
+        <img src="images/softinvert.jpg" class="image front-image" alt="">
+        <img src="images/books2right.jpg" class="image back-image" alt="">
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    const wrapImages = document.querySelectorAll('.wrap-images');
+    wrapImages.forEach((wrap) => {
+      wrap.addEventListener('click', function() {
+        this.classList.toggle("rotate");
+      });
+    });
+  </script>
+</body>
+</html>
