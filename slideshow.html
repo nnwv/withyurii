@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       overflow-x: hidden;
@@ -143,6 +146,34 @@
       }
     }
 
+    let start = null;
+
+    window.addEventListener('touchstart', function(e) {
+        start = e.changedTouches[0];
+    });
+
+    window.addEventListener('touchend', function(e) {
+      let end = e.changedTouches[0];
+      if (!scrolling) {
+        if(end.screenX - start.screenX > 0) {
+          console.log('left');
+          scrolling = true;
+            changeRectangle(currentIndex + 1);
+            setTimeout(function() {
+              scrolling = false;
+            }, 5000);
+        }
+      else if(end.screenX - start.screenX < 0) {
+        console.log('right');
+        scrolling = true;
+          changeRectangle(currentIndex - 1);
+          setTimeout(function() {
+            scrolling = false;
+          }, 5000);
+        }
+      }
+    });
+
     function addTransition() {
       setTimeout(() => {
         container.style.transition = 'transform 5s ease-in-out 0s';
@@ -156,6 +187,7 @@
     container.addEventListener('wheel', handleSwipe);
 
     document.addEventListener('keydown', handleKeyBoard);
+
   </script>
 </body>
 </html>
