@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Card Generator</title>
+</head>
+<body>
+    <h1>Birthday Card Generator</h1>
+    <canvas id="birthdayCardCanvas" width="500" height="500" style="border: 1px solid black;"></canvas>
+    <br>
+    <button onclick="generateCard()">Generate Birthday Card</button>
+    <br>
+    <img id="birthdayCardImage" style="display: none;">
+    <br>
+    <a id="downloadLink" style="display: none;">Download Birthday Card</a>
+
+    <script>
+        function generateCard() {
+            const canvas = document.getElementById("birthdayCardCanvas");
+            const ctx = canvas.getContext("2d");
+
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw background
+            ctx.fillStyle = "#ffffff"; // White background
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw "Happy Birthday" text
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "black";
+            ctx.textAlign = "center";
+            ctx.fillText("Happy Birthday", canvas.width / 2, canvas.height / 2);
+
+            // Define a list of birthday emojis (you can add more if you want)
+            const emojis = ["🎂", "🎈", "🎉", "🍰", "🎁", "🎊"];
+
+            // Draw random assortment of emojis
+            for (let i = 0; i < 100; i++) {
+                const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+                const emojiSize = Math.floor(Math.random() * 21) + 20;
+                const emojiX = Math.random() * (canvas.width - emojiSize);
+                const emojiY = Math.random() * (canvas.height - emojiSize);
+
+                ctx.fillText(emoji, emojiX, emojiY + emojiSize);
+            }
+
+            // Generate and display the image
+            const dataURL = canvas.toDataURL("image/jpeg");
+            const birthdayCardImage = document.getElementById("birthdayCardImage");
+            birthdayCardImage.src = dataURL;
+            birthdayCardImage.style.display = "inline";
+
+            // Make it downloadable
+            const downloadLink = document.getElementById("downloadLink");
+            downloadLink.href = dataURL;
+            downloadLink.download = "birthday_card.jpg";
+            downloadLink.style.display = "inline";
+        }
+    </script>
+</body>
+</html>

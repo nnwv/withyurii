@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Square</title>
+  <style>
+    /* Your existing styles */
+    .square {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      border: 15px solid #000;
+      border-radius: 5px;
+      font-size: 24px;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      background-color: #f0f0f0;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .birthday-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .emoji {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    /* End of your existing styles */
+  </style>
+</head>
+<body>
+  <div class="square">
+    <div class="birthday-text">Happy Birthday</div>
+    <canvas id="canvas"></canvas>
+  </div>
+  <button onclick="saveAsJPEG()">Save as JPEG</button>
+
+  <script>
+    const emojis = ['🎉', '🎈', '🎂', '🎁', '🎊', '🥳', '🍰', '🎶', '🕯️', '🎗️'];
+
+    function getRandomEmoji() {
+      return emojis[Math.floor(Math.random() * emojis.length)];
+    }
+
+    function getRandomPosition(max) {
+      return Math.floor(Math.random() * max);
+    }
+
+    const squareElement = document.querySelector('.square');
+    const squareWidth = squareElement.clientWidth;
+    const squareHeight = squareElement.clientHeight;
+
+    for (let i = 0; i < 50; i++) {
+      const emoji = getRandomEmoji();
+      const emojiElement = document.createElement('span');
+      emojiElement.innerText = emoji;
+      emojiElement.classList.add('emoji');
+      const size = Math.floor(Math.random() * 30) + 20; // Random size between 20 and 50 pixels
+      const left = getRandomPosition(squareWidth - size);
+      const top = getRandomPosition(squareHeight - size);
+      emojiElement.style.fontSize = `${size}px`;
+      emojiElement.style.left = `${left}px`;
+      emojiElement.style.top = `${top}px`;
+      squareElement.appendChild(emojiElement);
+    }
+
+    // Function to convert the square to JPEG and save it
+    function saveAsJPEG() {
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+
+      // Set the canvas size to match the square size
+      canvas.width = squareWidth;
+      canvas.height = squareHeight;
+
+      // Clear any previous content on the canvas
+      ctx.clearRect(0, 0, squareWidth, squareHeight);
+
+      // Draw the square content on the canvas
+      const squareContent = document.querySelector('.square').innerHTML;
+      ctx.fillStyle = '#f0f0f0'; // Set the same background color as the square
+      ctx.fillRect(0, 0, squareWidth, squareHeight);
+      ctx.fillStyle = '#000'; // Set the same text color as the square
+      ctx.font = '24px Courier New';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('Happy Birthday', squareWidth / 2, squareHeight / 2);
+
+      const emojiElements = document.querySelectorAll('.emoji');
+      emojiElements.forEach((emojiElement) => {
+        const size = parseInt(emojiElement.style.fontSize);
+        const left = parseInt(emojiElement.style.left);
+        const top = parseInt(emojiElement.style.top);
+        const emoji = emojiElement.innerText;
+        ctx.font = `${size}px Courier New`;
+        ctx.fillText(emoji, left + size / 2, top + size / 2);
+      });
+
+      // Convert the canvas content to a JPEG image
+      const image = canvas.toDataURL('image/jpeg', 0.9);
+
+      // Create a link element to download the image
+      const link = document.createElement('a');
+      link.download = 'happy_birthday_square.jpg';
+      link.href = image;
+
+      // Trigger the download
+      link.click();
+    }
+  </script>
+</body>
+</html>
