@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perspective Rectangle</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ffffff;
+    }
+
+    .container {
+      width: 400px; /* Adjust the width as needed */
+      height: 900px; /* Adjust the height as needed */
+      perspective: 200px; /* Adjust the perspective value for stronger/weaker effect */
+    }
+
+    .rectangle1 {
+      width: 100%;
+      height: 100%;
+      background-image: url('images/floor-small.jpg');
+      background-size: cover;
+      background-position: center;
+      transform: rotateX(50deg); /* Adjust the angle (30deg in this example) to change the perspective */
+      transform-origin: bottom;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .rectangle2 {
+      width: 100%;
+      height: 100%;
+      background-image: url('images/floor-small.jpg');
+      background-size: cover;
+      background-position: center;
+      transform: rotatey(50deg); /* Adjust the angle (30deg in this example) to change the perspective */
+      transform-origin: bottom;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="rectangle1"></div>
+    <div class="rectangle2"></div>
+  </div>
+</body>
+</html>
