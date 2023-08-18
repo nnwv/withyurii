@@ -47,6 +47,9 @@
       #player-border {
         width: 90%;
       }
+      .wrapper-buttons {
+        padding-top: 60px;
+      }
     }
 
     button {
@@ -78,6 +81,18 @@
     .wrapper-buttons {
       transform: skewY(-10deg);
       margin-top: -70px
+    }
+    /* #player-border:hover ~ .wrapper-buttons {
+      display: none;
+    } */
+    .wrapper-buttons.animated-hidden {
+      animation: animated-hidden 3s ease-out 10s forwards;
+    }
+    @keyframes animated-hidden {
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
   </style>
 </head>
@@ -375,7 +390,17 @@
       document.getElementById('player').style.display = 'block';
       // Load and play the video
       player.loadVideoById(videoId);
+      document.querySelector('.wrapper-buttons').classList.add('animated-hidden');
     }
+
+    // document.querySelector('#player-border').addEventListener('mouseout', function() {
+    //   console.log('hide');
+    //   document.querySelector('.wrapper-buttons').classList.remove('animated-hidden');
+    // });
+
+    // document.querySelector('#player-border').addEventListener('mouseover', function() {
+    //   console.log('mouseover');
+    // });
   </script>
 </body>
 
