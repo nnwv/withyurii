@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      overflow-x: hidden;
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: x-large;
+      font-weight: bold;
+    
+    }
+    
+    #container {
+      width: 100vw; /* Adjust the width as needed */
+      height: 100vh;
+      display: flex;
+    }
+    
+    .rectangle {
+      flex-shrink: 0;
+      width: 90vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    p {
+      color: #f6f6f3;
+      width: 500px;
+      text-align: justify;
+      
+
+    }
+    
+    
+    #rectangle1 {
+      background-color: #262626;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    
+    #rectangle2 {
+      background-color: black;
+    }
+    
+    #rectangle3 {
+      background-color: #262626;
+    }
+    
+    #rectangle4 {
+      background-color: black;
+    }
+    #rectangle5 {
+      background-color: #262626;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="rectangle" id="rectangle1">scroll right to view slideshow ➡️</div>
+    <div class="rectangle" id="rectangle2"><P>The things which I have seen I now can see no more.<br>
+      The Rainbow comes and goes,<br>
+      And lovely is the Rose,<br>
+      The Moon doth with delight<br>
+      Look round her when the heavens are bare,<br>
+      Waters on a starry night<br>
+      Are beautiful and fair;<br>
+      The sunshine is a glorious birth;<br>
+      But yet I know, where'er I go,<br>
+      That there hath past away a glory from the earth.<br>
+      <br>
+      <a href="https://www.poetryfoundation.org/poems/45536/ode-intimations-of-immortality-from-recollections-of-early-childhood" title="Wordsworth, William. "Ode: Intimations of Immortality from Recollections of Early Childhood." 1802.">source</a>
+      </P></div>
+    <div class="rectangle" id="rectangle3"><p>Most of us have been staring at the blue screens of computers and related electronic devices for years, without giving them much thought. We relate to them the way a medieval church-goer related to the wall on which a religious scene had been painted, or as the camera obscura's user related to the images through which he viewed an eclipse of the sun: as the surface on which other things are displayed.
+      We look through, not at them.</p></div>
+    <div class="rectangle" id="rectangle4"><img src="images/books.jpg" alt="picture of an old foot"></div>
+    <div class="rectangle" id="rectangle5"><p>Pictures help us care for the world. It is through them through them that we experienced our “togetherness”.</p></div>
+    
+  </div>
+
+  <script>
+    var container = document.getElementById('container');
+    var rectangles = document.getElementsByClassName('rectangle');
+    var currentIndex = 0;
+    var containerWidth = container.offsetWidth;
+    var rectWidth = rectangles[0].offsetWidth;
+    var scrolling = false;
+
+    function showCurrentRectangle() {
+      var scrollPosition = currentIndex * rectWidth;
+      container.style.transform = 'translateX(-' + scrollPosition + 'px)';
+    }
+
+    function changeRectangle(nextIndex) {
+      if (rectangles.length === nextIndex) {
+        currentIndex = 0;
+      } else {
+        currentIndex = nextIndex;
+      }
+      showCurrentRectangle();
+    }
+
+    function handleSwipe(event) {
+      if (!scrolling) {
+        var delta = event.deltaX;
+
+        if (delta > 0 && currentIndex < rectangles.length - 1) {
+          scrolling = true;
+          changeRectangle(currentIndex + 1);
+          setTimeout(function() {
+            scrolling = false;
+          }, 2000);
+        } else if (delta < 0 && currentIndex > 0) {
+          scrolling = true;
+          changeRectangle(currentIndex - 1);
+          setTimeout(function() {
+            scrolling = false;
+          }, 2000);
+        }
+      }
+    }
+
+    function handleKeyBoard(event) {
+      const keyCode = event.keyCode;
+      if (keyCode === 39) {
+        changeRectangle(currentIndex + 1);
+        setTimeout(function() {
+          scrolling = false;
+        }, 2000);
+      }
+      if (keyCode === 37 && currentIndex > 0) {
+        changeRectangle(currentIndex - 1);
+        setTimeout(function() {
+          scrolling = false;
+        }, 2000);
+      }
+    }
+
+    function addTransition() {
+      setTimeout(() => {
+        container.style.transition = 'transform 5s ease-in-out 0s';
+      }, 300);
+    }
+
+    addTransition();
+
+    showCurrentRectangle();
+
+    container.addEventListener('wheel', handleSwipe);
+
+    document.addEventListener('keydown', handleKeyBoard);
+  </script>
+</body>
+</html>
