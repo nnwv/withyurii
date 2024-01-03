@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick-theme.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      overflow: hidden;
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: x-large;
+      font-weight: bold;
+     
+    
+    }
+    
+    #container {
+      height: 100vh;
+    }
+
+    .slider img {
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="slider">
+      <img src="images/01-gold-north.jpg" alt="">
+      <a href="https://google.com">
+        <img src="images/02-gold-east.jpg" alt="">
+      </a>
+      <img src="images/03-gold-south.jpg" alt="">
+      <img src="images/04-gold-west.jpg" alt="">
+    </div>
+  </div>
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="slick.min.js"></script>
+  <script>
+    $('.slider').slick();
+  </script>
+</body>
+</html>
