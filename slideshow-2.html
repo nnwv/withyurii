@@ -29,21 +29,35 @@
       height: 100vh;
       object-fit: cover;
     }
-    .slide-link {
+    .slick-slide {
       width: 100%;
       height: 100vh;
+    }
+    .slick-slide {
+      overflow: auto;
+      cursor: zoom-in;
+    }
+    .slick-slide.zoom img {
+      transform: scale(3);  
+      transform-origin: left top;
     }
   </style>
 </head>
 <body>
   <div id="container">
     <div class="slider">
-      <img src="images/01-gold-north.jpg" alt="">
-      <a href="https://google.com" class="slide-link">
+      <div>
+        <img src="images/01-gold-north.jpg" alt="">
+      </div>
+      <a href="https://google.com">
         <img src="images/02-gold-east.jpg" alt="">
       </a>
-      <img src="images/03-gold-south.jpg" alt="">
-      <img src="images/04-gold-west.jpg" alt="">
+      <div>
+        <img src="images/03-gold-south.jpg" alt="">
+      </div>
+      <div>
+        <img src="images/04-gold-west.jpg" alt="">
+      </div>
     </div>
   </div>
   <script src="jquery-3.7.1.min.js"></script>
@@ -69,6 +83,15 @@
             scrolling = false;
           }, 1000);
         }
+      }
+    });
+
+    $('.slick-slide').on('click', function() {
+      $(this).toggleClass('zoom');
+      if ($(this).hasClass('zoom')) {
+        $('.slider').slick("slickSetOption", "swipe", false, false);
+      } else {
+        $('.slider').slick("slickSetOption", "swipe", true, false);
       }
     });
   </script>
